@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Dealer <%= @board.dealer %></p>
+<p>Vuln <%= @board.vulnerability %></p>
+
+<% @board.hands.each_with_index do |hand, index| %>
+  <p><b><%= %w(south west north east)[index] %></b>
+
+  <% hand.each do |suit, cards| %>
+    <% cards.each do |rank| %>
+      <img height=60 width=40 src="<%= card_image(suit, rank) %>">
+    <% end %>&nbsp;&nbsp;&nbsp;&nbsp;
+  <% end %></p>
+<% end %>
+<p><%= @board.bids.inspect %></p>
+<p>file: <%= @board.file %></p>
+</body>
+</html>
